@@ -444,6 +444,7 @@ a{text-decoration:none;color:inherit}
 /* ── HOURS ── */
 .hours-sec{background:var(--off)}
 .hours-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:start}
+.hours-layout > div:last-child{display:flex;flex-direction:column;justify-content:center;height:100%}
 .hours-left .sec-title{margin-bottom:2rem}
 .hours-card{
   background:var(--white);border:1px solid var(--border);
@@ -1241,19 +1242,19 @@ footer{
 <!-- STICKY TABS -->
 <div class="menu-tabs-wrap" id="menuTabsWrap">
   <div class="menu-tabs" id="menuTabs">
-    <div class="menu-tab active" onclick="scrollToSection('thali')">Thali</div>
-    <div class="menu-tab" onclick="scrollToSection('street')">Street Food</div>
-    <div class="menu-tab" onclick="scrollToSection('breakfast')">Breakfast</div>
-    <div class="menu-tab" onclick="scrollToSection('veg')">Vegetarian</div>
-    <div class="menu-tab" onclick="scrollToSection('nonveg')">Non-Veg</div>
-    <div class="menu-tab" onclick="scrollToSection('snacks')">Snacks</div>
-    <div class="menu-tab" onclick="scrollToSection('egg')">Egg</div>
-    <div class="menu-tab" onclick="scrollToSection('biryani')">Biryani</div>
-    <div class="menu-tab" onclick="scrollToSection('ricebowl')">Rice Bowl</div>
-    <div class="menu-tab" onclick="scrollToSection('breads')">Breads &amp; Rice</div>
-    <div class="menu-tab" onclick="scrollToSection('sides')">Sides</div>
-    <div class="menu-tab" onclick="scrollToSection('dessert')">Dessert</div>
-    <div class="menu-tab" onclick="scrollToSection('drinks')">Drinks</div>
+    <div class="menu-tab active" onclick="scrollToSection('thali',this)">Thali</div>
+    <div class="menu-tab" onclick="scrollToSection('street',this)">Street Food</div>
+    <div class="menu-tab" onclick="scrollToSection('breakfast',this)">Breakfast</div>
+    <div class="menu-tab" onclick="scrollToSection('veg',this)">Vegetarian</div>
+    <div class="menu-tab" onclick="scrollToSection('nonveg',this)">Non-Veg</div>
+    <div class="menu-tab" onclick="scrollToSection('snacks',this)">Snacks</div>
+    <div class="menu-tab" onclick="scrollToSection('egg',this)">Egg</div>
+    <div class="menu-tab" onclick="scrollToSection('biryani',this)">Biryani</div>
+    <div class="menu-tab" onclick="scrollToSection('ricebowl',this)">Rice Bowl</div>
+    <div class="menu-tab" onclick="scrollToSection('breads',this)">Breads &amp; Rice</div>
+    <div class="menu-tab" onclick="scrollToSection('sides',this)">Sides</div>
+    <div class="menu-tab" onclick="scrollToSection('dessert',this)">Dessert</div>
+    <div class="menu-tab" onclick="scrollToSection('drinks',this)">Drinks</div>
   </div>
 </div>
 
@@ -1518,13 +1519,22 @@ footer{
 
 <script>
 // Tab scroll to section
-function scrollToSection(id) {
+function scrollToSection(id, tabEl) {
   const el = document.getElementById('sec-' + id);
   if (!el) return;
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  // Activate tab
+  // Update active tab immediately
   document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+  (tabEl || (event && event.currentTarget) || (event && event.target)).classList.add('active');
+  // Delay scroll so the page is fully visible/laid out first
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      const navHeight = 74;
+      const tabsHeight = document.getElementById('menuTabsWrap') ? document.getElementById('menuTabsWrap').offsetHeight : 50;
+      const offset = navHeight + tabsHeight + 8;
+      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
 }
 
 // Auto-highlight tab on scroll within menu page
@@ -1613,6 +1623,12 @@ function gp(n){
     const e=document.getElementById('nl-'+k);
     if(e)e.classList.toggle('act',k===n);
   });
+  // Reset menu tabs to first tab when entering menu
+  if(n==='menu'){
+    const tabs=document.querySelectorAll('.menu-tab');
+    tabs.forEach(t=>t.classList.remove('active'));
+    if(tabs[0])tabs[0].classList.add('active');
+  }
   setTimeout(reveal,120);
 }
 
