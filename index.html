@@ -2277,6 +2277,38 @@ html.pt-has-cursor .menu-tab, html.pt-has-cursor .menu-search-clear{cursor:point
 
 <script>
 // Tab scroll to section
+let __ptMenuProgScroll = false;
+let __ptMenuScrollRaf = null;
+
+// Custom RAF-driven smooth scroll. Native smooth scroll is unreliable in
+// Firefox when html{scroll-behavior:smooth} and scrollTo({behavior:'smooth'})
+// are combined — they cancel each other and the page only nudges a few px.
+function __ptMenuSmoothScroll(targetY, duration) {
+  duration = duration || 600;
+  if (__ptMenuScrollRaf) cancelAnimationFrame(__ptMenuScrollRaf);
+  const startY = window.pageYOffset || document.documentElement.scrollTop;
+  const dist = targetY - startY;
+  const startT = performance.now();
+  // Disable CSS smooth-scroll for the duration so our per-frame writes aren't re-animated.
+  const root = document.documentElement;
+  const prevBehavior = root.style.scrollBehavior;
+  root.style.scrollBehavior = 'auto';
+  __ptMenuProgScroll = true;
+  function ease(t){ return t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2; }
+  function step(now){
+    const t = Math.min((now - startT) / duration, 1);
+    window.scrollTo(0, startY + dist * ease(t));
+    if (t < 1) {
+      __ptMenuScrollRaf = requestAnimationFrame(step);
+    } else {
+      __ptMenuScrollRaf = null;
+      root.style.scrollBehavior = prevBehavior;
+      __ptMenuProgScroll = false;
+    }
+  }
+  __ptMenuScrollRaf = requestAnimationFrame(step);
+}
+
 function scrollToSection(id, tabEl) {
   const el = document.getElementById('sec-' + id);
   if (!el) return;
@@ -2290,13 +2322,14 @@ function scrollToSection(id, tabEl) {
       const tabsHeight = document.getElementById('menuTabsWrap') ? document.getElementById('menuTabsWrap').offsetHeight : 50;
       const offset = navHeight + tabsHeight + 8;
       const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-      window.scrollTo({ top: top, behavior: 'smooth' });
+      __ptMenuSmoothScroll(top, 600);
     });
   });
 }
 
 // Auto-highlight tab on scroll within menu page
 function updateMenuTabs() {
+  if (__ptMenuProgScroll) return;
   if (!document.getElementById('page-menu').classList.contains('active')) return;
   const sections = document.querySelectorAll('.menu-section');
   const tabs = document.querySelectorAll('.menu-tab');
@@ -2308,8 +2341,15 @@ function updateMenuTabs() {
   tabs.forEach(t => t.classList.remove('active'));
   if (tabs[current]) {
     tabs[current].classList.add('active');
-    // Scroll tab into view
-    tabs[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    // Horizontally scroll the tabs container only — never call scrollIntoView,
+    // which can hijack the document scroll on iOS Safari.
+    const tabsContainer = document.getElementById('menuTabs');
+    if (tabsContainer) {
+      const tabRect = tabs[current].getBoundingClientRect();
+      const containerRect = tabsContainer.getBoundingClientRect();
+      const target = tabsContainer.scrollLeft + (tabRect.left - containerRect.left) - (containerRect.width - tabRect.width) / 2;
+      tabsContainer.scrollTo({ left: target, behavior: 'smooth' });
+    }
   }
 }
 window.addEventListener('scroll', updateMenuTabs, { passive: true });
