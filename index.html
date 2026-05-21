@@ -446,7 +446,8 @@ a{text-decoration:none;color:inherit}
 /* ── HOURS ── */
 .hours-sec{background:var(--off)}
 .hours-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:start}
-.hours-layout > div:last-child{display:flex;flex-direction:column;justify-content:center;height:100%}
+.hours-layout > div:last-child{display:flex;flex-direction:column;justify-content:flex-start;gap:.85rem}
+@media(max-width:760px){.hours-layout{grid-template-columns:1fr}}
 .hours-left .sec-title{margin-bottom:2rem}
 .hours-card{
   background:var(--white);border:1px solid var(--border);
@@ -734,43 +735,7 @@ footer{
   width: 100%;
 }
 
-/* ── STICKY CATEGORY TABS ── */
-.menu-tabs-wrap {
-  position: sticky;
-  top: 74px;
-  z-index: 200;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 2px 16px rgba(0,0,0,.06);
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.menu-tabs-wrap::-webkit-scrollbar { display: none; }
-.menu-tabs {
-  display: flex;
-  gap: 0;
-  min-width: max-content;
-  padding: 0 clamp(1rem,4vw,3rem);
-}
-.menu-tab {
-  padding: 1rem 1.2rem;
-  font-size: .74rem; font-weight: 700;
-  letter-spacing: .06em; text-transform: uppercase;
-  color: var(--t3);
-  cursor: pointer;
-  white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  transition: color .2s, border-color .2s;
-  user-select: none;
-}
-.menu-tab:hover { color: var(--cr); }
-.menu-tab.active {
-  color: var(--cr);
-  border-bottom-color: var(--cr);
-}
+/* ── STICKY CATEGORY TABS — see Round-2 rules at line ~1469 (pill style) ── */
 
 /* ── MENU CONTENT ── */
 .menu-body {
@@ -1228,50 +1193,57 @@ footer{
 .ham.open span:nth-child(2){background:var(--spice) !important}
 .ham.open span:nth-child(3){background:var(--cr) !important}
 
-/* ── Pinned cooking sequence ── */
+/* ── Cooking sequence — inline auto-cycle (no scroll hijack) ── */
 .cook-seq{
-  position:relative; min-height:340vh; background:var(--pt-deep);
+  position:relative; background:var(--pt-deep);
   color:#fff; overflow:hidden;
 }
 .cook-stage{
-  position:sticky; top:0; height:100vh; overflow:hidden;
+  position:relative;
+  height:clamp(460px, 68vh, 620px);
   display:flex; align-items:center; justify-content:center;
 }
 .cook-frame{
   position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-  opacity:0; transition:opacity .5s ease;
+  opacity:0; transition:opacity .9s ease;
+  pointer-events:none;
 }
-.cook-frame.act{opacity:1}
+.cook-frame.act{opacity:1; pointer-events:auto}
 .cook-frame-bg{
   position:absolute; inset:0;
   background-size:cover; background-position:center;
-  transform:scale(1.06);
+  transform:scale(1.03);
   filter:brightness(.55) saturate(1.1);
-  transition:transform 4s linear;
+  transition:transform 7s linear;
 }
-.cook-frame.act .cook-frame-bg{transform:scale(1.0)}
+.cook-frame.act .cook-frame-bg{transform:scale(1.08)}
 .cook-frame-txt{
   position:relative; text-align:center; padding:1.5rem; max-width:720px;
   z-index:2;
+  transform:translateY(14px); opacity:0;
+  transition:transform .9s var(--ease), opacity .9s ease;
 }
+.cook-frame.act .cook-frame-txt{transform:translateY(0); opacity:1}
 .cook-frame-txt h3{
-  font-family:'Fraunces',serif; font-size:clamp(2.3rem, 6vw, 4.4rem);
+  font-family:'Fraunces',serif; font-size:clamp(2rem, 5.4vw, 3.8rem);
   font-weight:700; margin-bottom:.7rem; line-height:1.05;
   letter-spacing:-.01em;
 }
 .cook-frame-txt h3 em{color:var(--spice-l); font-style:italic; font-weight:300}
-.cook-frame-txt p{font-size:clamp(1rem,1.7vw,1.18rem); opacity:.88; max-width:540px; margin:0 auto}
+.cook-frame-txt p{font-size:clamp(1rem,1.6vw,1.12rem); opacity:.88; max-width:540px; margin:0 auto}
 .cook-progress{
-  position:absolute; bottom:6%; left:50%; transform:translateX(-50%);
+  position:absolute; bottom:8%; left:50%; transform:translateX(-50%);
   display:flex; gap:.55rem; z-index:3;
 }
-.cook-pip{width:38px; height:3px; background:rgba(255,255,255,.22); border-radius:3px; transition:background .35s, width .35s}
-.cook-pip.act{background:var(--spice-l); width:54px}
-.cook-scroll-hint{
-  position:absolute; bottom:1.5rem; left:50%; transform:translateX(-50%);
-  color:rgba(255,255,255,.5); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase;
-  animation:hintFloat 2.5s ease-in-out infinite;
+.cook-pip{
+  width:38px; height:3px; background:rgba(255,255,255,.22); border-radius:3px;
+  transition:background .4s, width .4s;
+  cursor:pointer; pointer-events:auto; padding:0; border:none;
 }
+.cook-pip:hover{background:rgba(255,255,255,.45)}
+.cook-pip.act{background:var(--spice-l); width:60px}
+.cook-pip.done{background:rgba(245,166,35,.5)}
+html.pt-has-cursor .cook-pip{cursor:pointer !important}
 @keyframes hintFloat{
   0%,100%{transform:translate(-50%,0); opacity:.5}
   50%{transform:translate(-50%,6px); opacity:.85}
@@ -1357,7 +1329,8 @@ footer{
 @media(max-width:760px){
   .pt-ghee-drop, .hero-sparks, .lassi-canvas, .chef-fab::after{display:none !important}
   .spice-field svg{opacity:.10}
-  .cook-seq{min-height:200vh}
+  .cook-stage{height:clamp(380px, 60vh, 480px)}
+  .cook-frame-txt h3{font-size:clamp(1.7rem, 7.5vw, 2.6rem)}
 }
 
 /* ── Reduced motion specifics for big offenders ── */
@@ -1453,11 +1426,29 @@ html.pt-has-cursor, html.pt-has-cursor *{cursor:none !important}
 .pt-cursor-ring.image{width:80px; height:80px; border-color:#fff; background:rgba(0,0,0,.3)}
 .pt-cursor-ring.image .pt-cursor-label{color:#fff}
 .pt-cursor-ring.hide, .pt-cursor-dot.hide{opacity:0}
+
+/* Vanishing-dot trail behind cursor */
+.pt-cursor-trail{
+  position:fixed; top:0; left:0; width:7px; height:7px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #fff6c2 0%, #f5a623 55%, #b5271c 100%);
+  box-shadow:0 0 8px rgba(245,166,35,.55), 0 0 14px rgba(245,166,35,.25);
+  pointer-events:none; z-index:9995;
+  transform:translate3d(-50%,-50%,0) scale(1);
+  opacity:.9;
+  animation:ptTrailFade .75s cubic-bezier(.22,1,.36,1) forwards;
+}
+@keyframes ptTrailFade{
+  0%  {opacity:.9; transform:translate3d(-50%,-50%,0) scale(1)}
+  60% {opacity:.55}
+  100%{opacity:0;  transform:translate3d(-50%,-50%,0) scale(.18)}
+}
+
 @media (pointer:coarse), (max-width:760px){
-  .pt-cursor-dot, .pt-cursor-ring{display:none !important}
+  .pt-cursor-dot, .pt-cursor-ring, .pt-cursor-trail{display:none !important}
   html.pt-has-cursor, html.pt-has-cursor *{cursor:auto !important}
 }
-.pt-reduced .pt-cursor-dot, .pt-reduced .pt-cursor-ring{display:none !important}
+.pt-reduced .pt-cursor-dot, .pt-reduced .pt-cursor-ring, .pt-reduced .pt-cursor-trail{display:none !important}
 
 /* Kill the old ghee-drop trail (replaced by custom cursor) */
 .pt-ghee-drop{display:none !important}
@@ -1467,25 +1458,28 @@ html.pt-has-cursor, html.pt-has-cursor *{cursor:none !important}
    ════════════════════════════════════════════════════════════════ */
 /* — Sticky glass category nav for menu — */
 .menu-tabs-wrap{
-  position:sticky; top:64px; z-index:50;
-  background:rgba(255,255,255,.82);
+  position:sticky; top:74px; z-index:300;
+  background:rgba(255,255,255,.92);
   backdrop-filter:blur(16px) saturate(1.4);
   -webkit-backdrop-filter:blur(16px) saturate(1.4);
   border:1px solid rgba(0,0,0,.06);
   border-radius:999px;
   margin:0 auto 2rem;
   padding:.3rem;
-  max-width:fit-content;
+  max-width:max-content;
   box-shadow:0 8px 30px rgba(0,0,0,.06);
+  pointer-events:auto;
 }
-.menu-tabs{padding:0 !important; gap:.2rem !important; display:flex; overflow-x:auto; scrollbar-width:none}
+.menu-tabs{padding:0 !important; gap:.2rem !important; display:flex; overflow-x:auto; scrollbar-width:none; max-width:100%}
 .menu-tabs::-webkit-scrollbar{display:none}
 .menu-tab{
   padding:.55rem 1.05rem; border-radius:999px;
   font-size:.83rem; font-weight:600; color:var(--t2);
-  transition:all .25s var(--ease);
+  letter-spacing:0; text-transform:none;
+  transition:background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease);
   cursor:pointer; white-space:nowrap;
   border:1px solid transparent; line-height:1; flex-shrink:0;
+  user-select:none;
 }
 .menu-tab:hover{background:var(--warm); color:var(--ink2)}
 .menu-tab.active{background:var(--cr); color:#fff; border-color:var(--cr); box-shadow:0 4px 14px rgba(140,29,21,.28)}
@@ -1493,6 +1487,7 @@ html.pt-has-cursor, html.pt-has-cursor *{cursor:none !important}
 /* — Type-ahead search — */
 .menu-search-wrap{
   position:relative; max-width:460px; margin:0 auto 1.5rem;
+  z-index:60; pointer-events:auto;
 }
 .menu-search{
   width:100%; padding:.85rem 2.6rem .85rem 2.8rem;
@@ -1502,6 +1497,8 @@ html.pt-has-cursor, html.pt-has-cursor *{cursor:none !important}
   box-shadow:var(--shadow); transition:all .25s var(--ease);
 }
 .menu-search:focus{outline:none; border-color:var(--cr); box-shadow:0 0 0 4px rgba(140,29,21,.1)}
+html.pt-has-cursor .menu-search{cursor:text !important}
+html.pt-has-cursor .menu-tab, html.pt-has-cursor .menu-search-clear{cursor:pointer !important}
 .menu-search-ico{
   position:absolute; top:50%; left:1rem; transform:translateY(-50%);
   color:var(--t3); font-size:1.05rem; pointer-events:none; line-height:1;
@@ -1886,14 +1883,13 @@ html.pt-has-cursor, html.pt-has-cursor *{cursor:none !important}
         <p>30 years of recipes, refined over thousands of meals. Now on your plate &mdash; warm, fragrant, ready.</p>
       </div>
     </div>
-    <div class="cook-progress" aria-hidden="true">
-      <div class="cook-pip act"></div>
-      <div class="cook-pip"></div>
-      <div class="cook-pip"></div>
-      <div class="cook-pip"></div>
-      <div class="cook-pip"></div>
+    <div class="cook-progress" role="tablist" aria-label="Cooking story chapters">
+      <button class="cook-pip act" type="button" data-idx="0" aria-label="Whole spices"></button>
+      <button class="cook-pip" type="button" data-idx="1" aria-label="Tadka"></button>
+      <button class="cook-pip" type="button" data-idx="2" aria-label="Aromatics"></button>
+      <button class="cook-pip" type="button" data-idx="3" aria-label="Slow simmer"></button>
+      <button class="cook-pip" type="button" data-idx="4" aria-label="Plated"></button>
     </div>
-    <div class="cook-scroll-hint">Scroll to cook</div>
   </div>
 </section>
 
@@ -2868,29 +2864,68 @@ function handleForm(e){
       }
     }
 
-    // Cooking sequence pin + scrub — tighter scroll, each frame held briefly so motion never stalls
-    var seq = $('#cookSeq');
-    if (seq){
-      var frames = $$('.cook-frame', seq);
-      var pips = $$('.cook-pip', seq);
-      var total = frames.length;
-      if (total){
-        ScrollTrigger.create({
-          trigger: seq,
-          start: 'top top',
-          end: '+=' + (total * window.innerHeight),
-          scrub: 0.4,
-          pin: '.cook-stage',
-          anticipatePin: 1,
-          onUpdate: function(self){
-            var idx = Math.min(Math.floor(self.progress * total), total - 1);
-            frames.forEach(function(f,i){ f.classList.toggle('act', i===idx); });
-            pips.forEach(function(p,i){ p.classList.toggle('act', i===idx); });
-          }
-        });
-      }
-    }
+    // Cooking sequence: NO scroll-jack. Inline auto-cycle, init handled outside GSAP.
   }
+
+  // ── Cooking sequence auto-cycle (no scroll hijack) ──
+  (function cookAutoCycle(){
+    var seq = $('#cookSeq');
+    if (!seq) return;
+    var frames = $$('.cook-frame', seq);
+    var pips = $$('.cook-pip', seq);
+    var total = frames.length;
+    if (!total) return;
+    var DUR = RM ? 5000 : 4200; // ms per frame
+    var idx = 0;
+    var timer = null;
+    var inView = false;
+
+    function paint(){
+      frames.forEach(function(f,i){ f.classList.toggle('act', i===idx); });
+      pips.forEach(function(p,i){
+        p.classList.toggle('act', i===idx);
+        p.classList.toggle('done', i<idx);
+      });
+    }
+
+    function advance(){ idx = (idx + 1) % total; paint(); }
+    function start(){
+      if (timer) return;
+      paint();
+      timer = setInterval(advance, DUR);
+    }
+    function stop(){
+      if (!timer) return;
+      clearInterval(timer); timer = null;
+    }
+
+    // Pause when off-screen, resume when on-screen
+    if ('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(ents){
+        ents.forEach(function(e){
+          inView = e.isIntersecting && e.intersectionRatio > 0.25;
+          if (inView) start(); else stop();
+        });
+      }, { threshold: [0, 0.25, 0.5] });
+      io.observe(seq);
+    } else {
+      start();
+    }
+
+    // Click-to-jump on pips, pause auto-advance briefly
+    pips.forEach(function(p){
+      p.addEventListener('click', function(){
+        idx = parseInt(p.dataset.idx, 10) || 0;
+        paint();
+        stop();
+        if (inView) setTimeout(start, 1200);
+      });
+    });
+
+    // Pause on hover (desktop)
+    seq.addEventListener('mouseenter', stop);
+    seq.addEventListener('mouseleave', function(){ if (inView) start(); });
+  })();
 
   // ── vanilla-tilt for menu cards (desktop only, lib-dependent) ──
   function initTilt(){
@@ -3024,9 +3059,30 @@ function handleForm(e){
 
     var mx = window.innerWidth/2, my = window.innerHeight/2;
     var rx = mx, ry = my;
+    var lastTrailT = 0, lastTrailX = mx, lastTrailY = my;
+    var TRAIL_MIN_DIST = 18;       // px movement required between dots
+    var TRAIL_MIN_INTERVAL = 35;   // ms throttle
+    function spawnTrail(x, y){
+      var d = document.createElement('div');
+      d.className = 'pt-cursor-trail';
+      d.style.transform = 'translate3d('+x+'px, '+y+'px, 0) translate(-50%,-50%)';
+      document.body.appendChild(d);
+      // Remove after animation ends; fallback timeout in case animationend doesn't fire
+      var killed = false;
+      function kill(){ if (killed) return; killed = true; if (d.parentNode) d.parentNode.removeChild(d); }
+      d.addEventListener('animationend', kill);
+      setTimeout(kill, 1000);
+    }
     document.addEventListener('mousemove', function(e){
       mx = e.clientX; my = e.clientY;
       dot.style.transform = 'translate3d('+mx+'px, '+my+'px, 0) translate(-50%,-50%)';
+      var now = performance.now();
+      var dx = mx - lastTrailX, dy = my - lastTrailY;
+      var dist2 = dx*dx + dy*dy;
+      if (now - lastTrailT >= TRAIL_MIN_INTERVAL && dist2 >= TRAIL_MIN_DIST*TRAIL_MIN_DIST){
+        spawnTrail(mx, my);
+        lastTrailT = now; lastTrailX = mx; lastTrailY = my;
+      }
     }, { passive: true });
     function tick(){
       rx += (mx - rx) * 0.18;
