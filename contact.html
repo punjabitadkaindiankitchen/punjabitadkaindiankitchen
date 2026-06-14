@@ -1813,8 +1813,6 @@ html.pt-has-cursor .menu-tab, html.pt-has-cursor .menu-search-clear{cursor:point
 
 <!-- ── MOTION LIBS (deferred — ~98KB gz total, no LCP impact) ── -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 
 <!-- ── Google Analytics 4 (async, no LCP impact) ── -->
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
@@ -1895,9 +1893,9 @@ html.pt-has-cursor .menu-tab, html.pt-has-cursor .menu-search-clear{cursor:point
     </div>
   </div>
   <ul class="nav-links">
-    <li><a href="index.html" id="nl-home" class="act">Home</a></li>
+    <li><a href="index.html" id="nl-home">Home</a></li>
     <li><a href="sitemenu.html" id="nl-menu">Menu</a></li>
-    <li><a href="contact.html" id="nl-contact">Contact</a></li>
+    <li><a href="contact.html" id="nl-contact" class="act">Contact</a></li>
   </ul>
   <div class="nav-end">
     <div class="nav-soc">
@@ -1927,248 +1925,87 @@ html.pt-has-cursor .menu-tab, html.pt-has-cursor .menu-search-clear{cursor:point
 </nav>
 
 <!-- ═══════════════ HOME ═══════════════ -->
-<div class="page active" id="page-home">
+<div class="page active" id="page-contact">
+<!-- ── VISIT US HERO ── -->
+<div class="visit-hero rev">
+  <div class="visit-eyebrow">Come See Us</div>
+  <h1 class="visit-h">Punjab, on <em>Victoria Avenue</em></h1>
+  <p class="visit-tagline">New location, same recipes, same family. Open every single day — daytime, dinner, after-the-show, after-the-shift. Stop by, call, message — whatever feels easiest.</p>
+</div>
 
-<section class="hero" aria-label="Welcome to Punjabi Tadka">
-  <!-- ── Hero ambient layer: CSS sparks + warm glow over existing background image.
-       To enable a sizzling-tadka video: download a royalty-free MP4 (Pexels/Pixabay search:
-       "tadka tempering", "sizzling oil", "indian cooking spices"), save as assets/tadka-hero.mp4,
-       then in the <video> tag below: remove style="display:none", uncomment <source>, push. ── -->
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata"
-         style="display:none" aria-hidden="true">
-    <!-- <source src="assets/tadka-hero.mp4" type="video/mp4"> -->
-  </video>
-  <div class="hero-warm" aria-hidden="true"></div>
-  <div class="hero-sparks" aria-hidden="true" id="heroSparks"></div>
-  <canvas class="lassi-canvas" id="lassiCanvas" aria-hidden="true"></canvas>
-  <div class="hero-img" style="background-image:url('images/hero.webp')"></div>
-  <div class="hero-grad"></div>
-  <div class="hero-inner">
-    <div class="hero-pill">
-      <div class="hero-pill-dot"></div>
-      <span>Open Daily &bull; Niagara Falls</span>
-    </div>
-    <h1 class="hero-h1">
-      Authentic<br>Punjabi
-      <em>Indian Kitchen</em>
-    </h1>
-    <p class="hero-desc">Over 30 years of bold, aromatic flavours straight from Punjab &mdash; crafted fresh every day with love, tradition, and the finest spices.</p>
-    <div class="hero-actions">
-      <a href="sitemenu.html" class="btn btn-primary magnetic">Explore Our Menu</a>
-      <a href="contact.html" class="btn btn-secondary magnetic">Find Us</a>
-    </div>
-  </div>
-  <div class="hero-bar" aria-label="Quick info">
-    <div class="hero-bar-item"><div class="bar-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="bar-lbl">New Location</div><div class="bar-val">5677 Victoria Ave, Niagara Falls</div></div></div>
-    <div class="hero-bar-item"><div class="bar-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="bar-lbl">Hours</div><div class="bar-val">Daily &bull; 11:00 AM &ndash; 4:00 AM</div></div></div>
-    <div class="hero-bar-item"><div class="bar-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.89 6.89l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="bar-lbl">Phone</div><div class="bar-val"><a href="tel:4312796953">(431) 279-6953</a></div></div></div>
-    <div class="hero-bar-item"><div class="bar-ico"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div><div class="bar-lbl">Service</div><div class="bar-val">Dine-In &bull; Take-Out &bull; Delivery</div></div></div>
-  </div>
-</section>
+<!-- ── 4 ACTION TILES ── -->
+<div class="visit-tiles rev">
+  <a class="visit-tile t-call magnetic" href="tel:+14312796953" aria-label="Call us at (431) 279-6953" data-cursor-label="Tap to call">
+    <div class="visit-tile-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.89 6.89l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+    <div class="visit-tile-label">Call</div>
+    <div class="visit-tile-val">(431) 279-6953</div>
+  </a>
+  <a class="visit-tile t-whatsapp magnetic" href="https://wa.me/14312796953?text=Hi%20Punjabi%20Tadka%21%20I%27d%20like%20to..." target="_blank" rel="noopener" aria-label="Message us on WhatsApp" data-cursor-label="Open WhatsApp">
+    <div class="visit-tile-ico"><svg viewBox="0 0 24 24"><path d="M17.5 14.4l-2.6-1.3c-.3-.2-.7-.1-1 .2l-.9 1.1c-1.5-.7-2.9-2.1-3.6-3.6l1.1-.9c.3-.3.3-.7.2-1L9.4 6.3c-.2-.5-.7-.7-1.2-.5l-1.6.6c-.4.2-.7.6-.6 1.1.5 4.2 3.7 7.5 7.9 7.9.5 0 .9-.2 1.1-.6l.6-1.6c.2-.5 0-1-.5-1.2zM12 2C6.5 2 2 6.5 2 12c0 1.7.4 3.3 1.2 4.8L2 22l5.4-1.1c1.4.7 3 1.1 4.6 1.1 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></div>
+    <div class="visit-tile-label">WhatsApp</div>
+    <div class="visit-tile-val">Message Us</div>
+  </a>
+  <a class="visit-tile t-email magnetic" href="mailto:punjabitadkaindiankitchen@gmail.com?subject=Hi%20Punjabi%20Tadka" aria-label="Email us" data-cursor-label="Open email">
+    <div class="visit-tile-ico"><svg viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg></div>
+    <div class="visit-tile-label">Email</div>
+    <div class="visit-tile-val">Drop a line</div>
+  </a>
+  <a class="visit-tile t-map magnetic" href="https://www.google.com/maps/dir/?api=1&destination=5677+Victoria+Ave+Niagara+Falls+ON+L2G+3L5" target="_blank" rel="noopener" aria-label="Get directions" data-cursor-label="Open Maps">
+    <div class="visit-tile-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+    <div class="visit-tile-label">Directions</div>
+    <div class="visit-tile-val">5677 Victoria Ave</div>
+  </a>
+</div>
 
-<!-- SERVICES -->
-<div class="services"><div class="services-inner">
-  <div class="svc rev"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div><div class="svc-title">Dine In</div><div class="svc-desc">Warm tables &amp; great atmosphere</div></div>
-  <div class="svc rev d1"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><div class="svc-title">Take-Out</div><div class="svc-desc">Ready fresh, on your schedule</div></div>
-  <div class="svc rev d2"><div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="svc-title">Delivery</div><div class="svc-desc">Hot &amp; fresh at your door</div></div>
-  <div class="svc rev d3"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div><div class="svc-title">Open Until 4 AM</div><div class="svc-desc">Every single day of the year</div></div>
-</div></div>
-
-
-<!-- WHEAT STRIP (gradient version — original photo lives only on GitHub remote) -->
-<div style="height:220px;overflow:hidden;position:relative;background:linear-gradient(135deg,#3a1f10 0%,#1A0F08 50%,#3a1f10 100%)">
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(17,11,5,.7) 0%,transparent 40%,transparent 60%,rgba(17,11,5,.7) 100%);display:flex;align-items:center;justify-content:center">
-    <div style="text-align:center">
-      <p style="font-family:Fraunces,serif;font-size:clamp(1.2rem,3vw,1.8rem);font-style:italic;font-weight:300;color:rgba(255,255,255,.9);letter-spacing:.04em">&ldquo;From the fields of Punjab to your table&rdquo;</p>
-    </div>
+<!-- ── EMBEDDED GOOGLE MAP (no API key needed) ── -->
+<div class="visit-map-wrap rev">
+  <div class="visit-map-frame">
+    <div class="map-facade visit-map" role="button" tabindex="0" onclick="this.outerHTML=this.querySelector('template').innerHTML" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.outerHTML=this.querySelector('template').innerHTML}"><span>🗺️ Tap to load map<small>5677 Victoria Ave, Niagara Falls</small></span><template><iframe class="visit-map" src="https://maps.google.com/maps?q=5677+Victoria+Ave+Niagara+Falls+ON&hl=en&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Punjabi Tadka Indian Kitchen, 5677 Victoria Ave, Niagara Falls" allowfullscreen></iframe></template></div>
   </div>
 </div>
 
-<!-- ── STATS BAND (Phase 2 counter-ups) ── -->
-<section class="sec" style="padding-top:3rem;padding-bottom:3rem;background:var(--off)">
-  <div class="sec-in">
-    <div class="counter-row rev" id="counterRow">
-      <div class="counter-c"><div class="counter-n" data-to="30" data-suf="+">0</div><div class="counter-l">Years of Heritage</div></div>
-      <div class="counter-c"><div class="counter-n" data-to="4.8">0</div><div class="counter-l">Average Rating</div></div>
-      <div class="counter-c"><div class="counter-n" data-to="120" data-suf="+">0</div><div class="counter-l">Happy Reviews</div></div>
-      <div class="counter-c"><div class="counter-n" data-to="13">0</div><div class="counter-l">Menu Categories</div></div>
+<!-- ── HOURS + SOCIALS ── -->
+<div class="visit-details rev">
+  <div class="visit-card">
+    <h4>Opening Hours</h4>
+    <div class="visit-hours-grid" id="visitHoursGrid">
+      <div class="d" data-day="1">Monday</div><div class="v" data-day="1">11:00 AM – 4:00 AM</div>
+      <div class="d" data-day="2">Tuesday</div><div class="v" data-day="2">11:00 AM – 4:00 AM</div>
+      <div class="d" data-day="3">Wednesday</div><div class="v" data-day="3">11:00 AM – 4:00 AM</div>
+      <div class="d" data-day="4">Thursday</div><div class="v" data-day="4">11:00 AM – 4:00 AM</div>
+      <div class="d" data-day="5">Friday</div><div class="v" data-day="5">11:00 AM – 4:00 AM</div>
+      <div class="d" data-day="6">Saturday</div><div class="v" data-day="6">11:00 AM – 4:00 AM</div>
+      <div class="d" data-day="0">Sunday</div><div class="v" data-day="0">11:00 AM – 4:00 AM</div>
+    </div>
+    <p style="margin-top:1.3rem;font-size:.86rem;color:var(--t3);font-style:italic;line-height:1.6">Open every day of the year. Same prices for dine-in and pickup.</p>
+  </div>
+  <div class="visit-card">
+    <h4>Follow Along</h4>
+    <div class="visit-socials">
+      <a class="visit-social" href="https://www.facebook.com/punjabitadkakitchen/" target="_blank" rel="noopener">
+        <span class="visit-social-ico"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.9V14.9H8v-2.9h2.5V9.8c0-2.5 1.5-3.8 3.7-3.8 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12H16l-.4 2.9h-2.1V22A10 10 0 0 0 22 12z"/></svg></span>
+        <span>Facebook — daily specials &amp; photos</span>
+      </a>
+      <a class="visit-social" href="https://www.instagram.com/punjabitadkaindiankitchen" target="_blank" rel="noopener">
+        <span class="visit-social-ico"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.81-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.81-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.81.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.34 4.14.63A5.9 5.9 0 0 0 2 2 5.9 5.9 0 0 0 .63 4.14C.34 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.27 2.15.56 2.91A5.9 5.9 0 0 0 2 22a5.9 5.9 0 0 0 2.14 1.37c.76.29 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.27 2.91-.56A5.9 5.9 0 0 0 22 22a5.9 5.9 0 0 0 1.37-2.14c.29-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.27-2.15-.56-2.91A5.9 5.9 0 0 0 22 2 5.9 5.9 0 0 0 19.86.63c-.76-.29-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.41-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg></span>
+        <span>Instagram — the food, fresh from the kitchen</span>
+      </a>
+      <a class="visit-social" href="https://www.tripadvisor.com/Restaurant_Review-g154998-d27475347-Reviews-Punjabi_Tadka_Indian_Kitchen-Niagara_Falls_Ontario.html" target="_blank" rel="noopener">
+        <span class="visit-social-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="12" r="2"/></svg></span>
+        <span>TripAdvisor — reviews from real visitors</span>
+      </a>
     </div>
   </div>
-</section>
-
-<!-- ABOUT -->
-<section class="sec about-sec" aria-labelledby="about-h">
-  <!-- ── Floating spices: cardamom, star anise, clove, chili (Phase 1 ambient life) ── -->
-  <div class="spice-field" aria-hidden="true" id="spiceField">
-    <svg class="spice d1" style="--x:8%; --dur:34s; --d:0s" width="34" height="34" viewBox="0 0 32 32"><g fill="#7A8A2A"><ellipse cx="16" cy="16" rx="6" ry="11" transform="rotate(20 16 16)"/><ellipse cx="16" cy="16" rx="2" ry="11" transform="rotate(20 16 16)" fill="#5D6E1F"/></g></svg>
-    <svg class="spice d2" style="--x:22%; --dur:24s; --d:-6s" width="42" height="42" viewBox="0 0 40 40"><g fill="#B5733F"><path d="M20 4 L22 14 L32 14 L24 20 L27 30 L20 24 L13 30 L16 20 L8 14 L18 14 Z"/><circle cx="20" cy="20" r="3" fill="#7A4626"/></g></svg>
-    <svg class="spice d3" style="--x:38%; --dur:18s; --d:-12s" width="26" height="26" viewBox="0 0 24 24"><g fill="#6B3E1C"><circle cx="12" cy="16" r="4"/><path d="M12 12 L12 4 L14 6 L12 2 L10 6 L12 4" stroke="#6B3E1C" stroke-width="1.5" fill="none"/></g></svg>
-    <svg class="spice d2" style="--x:55%; --dur:28s; --d:-3s" width="38" height="38" viewBox="0 0 36 36"><g fill="#D93B2F"><path d="M18 4 Q14 12 16 22 Q18 30 22 28 Q26 22 24 12 Q22 4 18 4 Z"/><path d="M18 4 L18 2 L20 1 L19 4" stroke="#5A6B1F" stroke-width="1.4" fill="#7A8A2A"/></g></svg>
-    <svg class="spice d1" style="--x:72%; --dur:38s; --d:-18s" width="30" height="30" viewBox="0 0 30 30"><g fill="#7A8A2A"><ellipse cx="15" cy="15" rx="5" ry="10" transform="rotate(-15 15 15)"/><ellipse cx="15" cy="15" rx="1.8" ry="10" transform="rotate(-15 15 15)" fill="#5D6E1F"/></g></svg>
-    <svg class="spice d3" style="--x:85%; --dur:20s; --d:-9s" width="44" height="44" viewBox="0 0 40 40"><g fill="#B5733F"><path d="M20 4 L22 14 L32 14 L24 20 L27 30 L20 24 L13 30 L16 20 L8 14 L18 14 Z"/><circle cx="20" cy="20" r="3" fill="#7A4626"/></g></svg>
-    <svg class="spice d2" style="--x:12%; --dur:26s; --d:-22s" width="36" height="36" viewBox="0 0 36 36"><g fill="#D93B2F"><path d="M18 4 Q14 12 16 22 Q18 30 22 28 Q26 22 24 12 Q22 4 18 4 Z"/><path d="M18 4 L18 2 L20 1 L19 4" stroke="#5A6B1F" stroke-width="1.4" fill="#7A8A2A"/></g></svg>
-    <svg class="spice d1" style="--x:65%; --dur:36s; --d:-30s" width="28" height="28" viewBox="0 0 24 24"><g fill="#6B3E1C"><circle cx="12" cy="16" r="4"/><path d="M12 12 L12 4 L14 6 L12 2 L10 6 L12 4" stroke="#6B3E1C" stroke-width="1.5" fill="none"/></g></svg>
-  </div>
-  <div class="sec-in">
-    <div class="about-layout">
-      <div class="about-visual rev">
-        <div class="about-photo">
-          <img loading="lazy" decoding="async" src="images/about-spread.webp" alt="Punjabi Tadka food spread — copper pot buffet">
-          <div class="about-photo-caption"><p>&ldquo;Authentic Punjabi flavours, made fresh every day&rdquo;</p></div>
-        </div>
-        <div class="about-badge"><div class="badge-num">30+</div><div class="badge-txt">Years of<br>Heritage</div></div>
-      </div>
-      <div class="about-content">
-        <div class="eyebrow">Our Culinary Journey</div>
-        <h2 class="sec-title" id="about-h" style="margin-bottom:1.5rem">Punjabi Flavours,<br><em>Made with Love</em></h2>
-        <p class="rev d1">At Punjabi Tadka Indian Kitchen, we bring the <strong>authentic flavours of Punjabi cuisine</strong> to Niagara Falls. With over 30 years of experience, our culinary journey began in Punjab, where our chef&rsquo;s passion for traditional Punjabi dishes was born.</p>
-        <p class="rev d1">We proudly serve as a <strong>top Indian restaurant in Niagara Falls</strong>, delivering rich, aromatic flavours that keep our community coming back.</p>
-        <p class="rev d2">We&rsquo;ve recently moved to our <strong>new home at 5677 Victoria Ave</strong> &mdash; same recipes, same warmth, brand new location.</p>
-        <div class="about-pills rev d3">
-          <div class="about-pill"><div class="pill-title">Fresh Every Day</div><div class="pill-desc">Every dish prepared fresh daily with quality ingredients</div></div>
-          <div class="about-pill"><div class="pill-title">Authentic Recipes</div><div class="pill-desc">Traditional family recipes, unchanged for 30 years</div></div>
-          <div class="about-pill"><div class="pill-title">Made with Love</div><div class="pill-desc">Because food tastes better when it&rsquo;s made with heart</div></div>
-          <div class="about-pill"><div class="pill-title">Open Until 4 AM</div><div class="pill-desc">Serving Niagara Falls every single day, all year round</div></div>
-        </div>
-        <div style="margin-top:2.2rem;display:flex;gap:1rem;flex-wrap:wrap" class="rev d4">
-          <a href="sitemenu.html" class="btn btn-primary magnetic">View Full Menu</a>
-          <a href="contact.html" class="btn btn-outline-red magnetic">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PINNED COOKING SEQUENCE (Phase 2 scroll choreography) ── -->
-<section class="cook-seq" id="cookSeq" aria-label="From spice to plate — our cooking journey">
-  <div class="cook-stage">
-    <div class="cook-frame act" data-idx="0">
-      <div class="cook-frame-bg" style="background:radial-gradient(circle at 30% 40%, #7A4626 0%, #3a1f10 60%, #1A0F08 100%)"></div>
-      <div class="cook-frame-txt">
-        <h3>It starts with <em>whole spices</em></h3>
-        <p>Cardamom, cumin, mustard seed, fenugreek &mdash; carefully selected, sourced fresh, never compromised.</p>
-      </div>
-    </div>
-    <div class="cook-frame" data-idx="1">
-      <div class="cook-frame-bg" style="background:radial-gradient(circle at 50% 50%, #E8820C 0%, #B5271C 50%, #1A0F08 100%)"></div>
-      <div class="cook-frame-txt">
-        <h3>Then the <em>tadka</em> begins</h3>
-        <p>Hot ghee meets cumin and mustard seed. A sizzle. A pop. The kitchen comes alive. <em>This</em> is where flavour is born.</p>
-      </div>
-    </div>
-    <div class="cook-frame" data-idx="2">
-      <div class="cook-frame-bg" style="background:radial-gradient(circle at 70% 50%, #D93B2F 0%, #8C1D15 55%, #1A0F08 100%)"></div>
-      <div class="cook-frame-txt">
-        <h3>Aromatics <em>build the base</em></h3>
-        <p>Onion, ginger, garlic, green chili. Slow-cooked until golden. The foundation every dish stands on.</p>
-      </div>
-    </div>
-    <div class="cook-frame" data-idx="3">
-      <div class="cook-frame-bg" style="background:radial-gradient(circle at 40% 60%, #B5271C 0%, #5D1A10 50%, #1A0F08 100%)"></div>
-      <div class="cook-frame-txt">
-        <h3>The <em>slow simmer</em></h3>
-        <p>Tomato, cream, ground spices, time. Hours, not minutes. Patience is the most important ingredient.</p>
-      </div>
-    </div>
-    <div class="cook-frame" data-idx="4">
-      <div class="cook-frame-bg" style="background:radial-gradient(circle at 50% 40%, #F5A623 0%, #B5271C 40%, #1A0F08 100%)"></div>
-      <div class="cook-frame-txt">
-        <h3>Plated. <em>Served. Loved.</em></h3>
-        <p>30 years of recipes, refined over thousands of meals. Now on your plate &mdash; warm, fragrant, ready.</p>
-      </div>
-    </div>
-    <div class="cook-progress" role="tablist" aria-label="Cooking story chapters">
-      <button class="cook-pip act" type="button" data-idx="0" aria-label="Whole spices"></button>
-      <button class="cook-pip" type="button" data-idx="1" aria-label="Tadka"></button>
-      <button class="cook-pip" type="button" data-idx="2" aria-label="Aromatics"></button>
-      <button class="cook-pip" type="button" data-idx="3" aria-label="Slow simmer"></button>
-      <button class="cook-pip" type="button" data-idx="4" aria-label="Plated"></button>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="sec gallery-sec">
-  <div class="sec-in">
-    <div class="gallery-intro rev">
-      <div class="eyebrow" style="justify-content:center">Our Food</div>
-      <h2 class="sec-title">See What&rsquo;s <em>Waiting for You</em></h2>
-      <p style="color:var(--t3);margin-top:.9rem;font-size:.97rem;line-height:1.7">Every dish tells a story of tradition, warmth, and bold Punjabi flavour.</p>
-    </div>
-    <div class="gallery-grid-new">
-      <div class="gal-new big rev" style="background:#fefefe">
-        <img src="images/gallery-1.webp" alt="Punjabi food spread" loading="lazy" style="object-fit:contain">
-        <div class="gal-overlay"><span class="gal-label">Our Spread</span></div>
-      </div>
-      <div class="gal-new rev d1">
-        <img src="images/food-spread.jpg" alt="Biryani" loading="lazy">
-        <div class="gal-overlay"><span class="gal-label">Biryani</span></div>
-      </div>
-      <div class="gal-new rev d2">
-        <img src="images/biryani.jpg" alt="Rajma Rice" loading="lazy">
-        <div class="gal-overlay"><span class="gal-label">Rajma Rice</span></div>
-      </div>
-      <div class="gal-new rev d1">
-        <img src="images/rajma-rice.jpg" alt="Puri Combo" loading="lazy">
-        <div class="gal-overlay"><span class="gal-label">Puri Combo</span></div>
-      </div>
-      <div class="gal-new rev d2">
-        <img src="images/puri-combo.jpg" alt="Parantha Combo" loading="lazy">
-        <div class="gal-overlay"><span class="gal-label">Parantha Combo</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOURS & LOCATION -->
-<section class="sec hours-sec" aria-labelledby="hrs-h">
-  <div class="sec-in">
-    <div class="hours-layout">
-      <div class="rev">
-        <div class="eyebrow">Visit Us</div>
-        <div style="margin-bottom:1.3rem"><span class="live-status" id="liveStatus" role="status" aria-live="polite"><span class="live-dot"></span><span>Open Now &middot; Until 4 AM</span></span></div>
-        <h2 class="sec-title" id="hrs-h" style="margin-bottom:2rem">Hours &amp; <em>Location</em></h2>
-        <div class="hours-card">
-          <div class="hours-card-heading">Opening Hours</div>
-          <table class="hours-tbl"><tbody>
-            <tr><td>Monday &ndash; Sunday</td><td>11:00 AM &ndash; 4:00 AM</td></tr>
-          </tbody></table>
-          <div class="hours-note"><strong>Open every day of the year.</strong> Same rates for dine-in and pickup.</div>
-        </div>
-        <div class="map-embed"><div class="map-facade" role="button" tabindex="0" onclick="this.outerHTML=this.querySelector('template').innerHTML" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.outerHTML=this.querySelector('template').innerHTML}"><span>🗺️ Tap to load map<small>5677 Victoria Ave, Niagara Falls</small></span><template><iframe title="Punjabi Tadka location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2917.2!2d-79.076!3d43.09!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s5677+Victoria+Ave+Niagara+Falls+ON!5e0!3m2!1sen!2sca!4v1" width="100%" height="220" style="border:0;display:block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></template></div></div>
-      </div>
-      <div class="contact-stack rev d2">
-        <div class="ccard"><div class="ccard-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ccard-lbl">New Address</div><div class="ccard-val">5677 Victoria Ave<br>Niagara Falls, ON L2G 3L5</div></div></div>
-        <div class="ccard"><div class="ccard-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.89 6.89l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ccard-lbl">Phone</div><div class="ccard-val"><a href="tel:4312796953">(431) 279-6953</a></div></div></div>
-        <div class="ccard"><div class="ccard-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ccard-lbl">Email</div><div class="ccard-val"><a href="mailto:punjabitadkaindiankitchen@gmail.com">punjabitadkaindiankitchen@gmail.com</a></div></div></div>
-        <div class="ccard"><div class="ccard-ico"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><div><div class="ccard-lbl">Social Media</div><div class="soc-links"><a href="https://www.facebook.com/punjabitadkakitchen/" target="_blank" rel="noopener" class="soc-btn">Facebook</a><a href="https://www.instagram.com/punjabitadkaindiankitchen" target="_blank" rel="noopener" class="soc-btn">Instagram</a><a href="https://www.tripadvisor.com/Restaurant_Review-g154998-d27475347-Reviews-Punjabi_Tadka_Indian_Kitchen-Niagara_Falls_Ontario.html" target="_blank" rel="noopener" class="soc-btn">TripAdvisor</a></div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
+</div>
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand">
-      <img loading="lazy" decoding="async" src="images/logo.png" alt="Punjabi Tadka Indian Kitchen" class="footer-logo">
-      <div class="footer-name">Punjabi Tadka Indian Kitchen</div>
-      <div class="footer-tag">Authentic Punjabi Cuisine &middot; Niagara Falls, Ontario</div>
-      <p class="footer-desc">Bringing the warmth and flavours of Punjab to your table for over 30 years. Come hungry, leave with a full heart.</p>
-      <div class="footer-soc">
-        <a href="https://www.facebook.com/punjabitadkakitchen/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.instagram.com/punjabitadkaindiankitchen" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-        <a href="https://www.tripadvisor.com/Restaurant_Review-g154998-d27475347-Reviews-Punjabi_Tadka_Indian_Kitchen-Niagara_Falls_Ontario.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></a>
-      </div>
-    </div>
-    <div class="footer-col"><h4>Pages</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="sitemenu.html">Our Menu</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul class="footer-links"><li><a href="tel:4312796953">(431) 279-6953</a></li><li><a href="mailto:punjabitadkaindiankitchen@gmail.com">punjabitadkaindiankitchen@gmail.com</a></li><li><a>5677 Victoria Ave<br>Niagara Falls, ON</a></li></ul></div>
+    <div class="footer-brand"><img loading="lazy" decoding="async" src="images/logo.png" alt="Logo" class="footer-logo"><div class="footer-name">Punjabi Tadka Indian Kitchen</div><div class="footer-tag">Niagara Falls, Ontario</div><p class="footer-desc">Come hungry, leave with a full heart.</p></div>
+    <div class="footer-col"><h4>Pages</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="sitemenu.html">Menu</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul class="footer-links"><li><a href="tel:4312796953">(431) 279-6953</a></li><li><a>5677 Victoria Ave<br>Niagara Falls, ON</a></li></ul></div>
   </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 Punjabi Tadka Indian Kitchen. All rights reserved.</p>
-    <p>Prices subject to change &middot; Taxes not included</p>
-  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Punjabi Tadka Indian Kitchen. All rights reserved.</p><p>Prices subject to change &middot; Taxes not included</p></div>
 </footer>
-</div><!-- /home -->
+</div><!-- /contact -->
 
 <script>
 // Page navigation

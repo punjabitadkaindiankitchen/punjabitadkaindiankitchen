@@ -1813,8 +1813,6 @@ html.pt-has-cursor .menu-tab, html.pt-has-cursor .menu-search-clear{cursor:point
 
 <!-- ── MOTION LIBS (deferred — ~98KB gz total, no LCP impact) ── -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 
 <!-- ── Google Analytics 4 (async, no LCP impact) ── -->
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
@@ -1895,8 +1893,8 @@ html.pt-has-cursor .menu-tab, html.pt-has-cursor .menu-search-clear{cursor:point
     </div>
   </div>
   <ul class="nav-links">
-    <li><a href="index.html" id="nl-home" class="act">Home</a></li>
-    <li><a href="sitemenu.html" id="nl-menu">Menu</a></li>
+    <li><a href="index.html" id="nl-home">Home</a></li>
+    <li><a href="sitemenu.html" id="nl-menu" class="act">Menu</a></li>
     <li><a href="contact.html" id="nl-contact">Contact</a></li>
   </ul>
   <div class="nav-end">
@@ -1927,248 +1925,384 @@ html.pt-has-cursor .menu-tab, html.pt-has-cursor .menu-search-clear{cursor:point
 </nav>
 
 <!-- ═══════════════ HOME ═══════════════ -->
-<div class="page active" id="page-home">
+<div class="page active" id="page-menu">
 
-<section class="hero" aria-label="Welcome to Punjabi Tadka">
-  <!-- ── Hero ambient layer: CSS sparks + warm glow over existing background image.
-       To enable a sizzling-tadka video: download a royalty-free MP4 (Pexels/Pixabay search:
-       "tadka tempering", "sizzling oil", "indian cooking spices"), save as assets/tadka-hero.mp4,
-       then in the <video> tag below: remove style="display:none", uncomment <source>, push. ── -->
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata"
-         style="display:none" aria-hidden="true">
-    <!-- <source src="assets/tadka-hero.mp4" type="video/mp4"> -->
-  </video>
-  <div class="hero-warm" aria-hidden="true"></div>
-  <div class="hero-sparks" aria-hidden="true" id="heroSparks"></div>
-  <canvas class="lassi-canvas" id="lassiCanvas" aria-hidden="true"></canvas>
-  <div class="hero-img" style="background-image:url('images/hero.webp')"></div>
-  <div class="hero-grad"></div>
-  <div class="hero-inner">
-    <div class="hero-pill">
-      <div class="hero-pill-dot"></div>
-      <span>Open Daily &bull; Niagara Falls</span>
-    </div>
-    <h1 class="hero-h1">
-      Authentic<br>Punjabi
-      <em>Indian Kitchen</em>
-    </h1>
-    <p class="hero-desc">Over 30 years of bold, aromatic flavours straight from Punjab &mdash; crafted fresh every day with love, tradition, and the finest spices.</p>
-    <div class="hero-actions">
-      <a href="sitemenu.html" class="btn btn-primary magnetic">Explore Our Menu</a>
-      <a href="contact.html" class="btn btn-secondary magnetic">Find Us</a>
-    </div>
+<div class="menu-pg-hero">
+  <div class="menu-pg-hero-img" style="background-image:url('images/hero.webp')"></div>
+  <div class="menu-pg-hero-grad"></div>
+  <div class="menu-pg-hero-content">
+    <div class="eyebrow" style="justify-content:center;color:rgba(255,255,255,.7)">Fresh Daily</div>
+    <h1>Our <em>Menu</em></h1>
+    <p class="menu-pg-hero-sub">Dine-In &bull; Take-Out &bull; Delivery &bull; Same Rates</p>
   </div>
-  <div class="hero-bar" aria-label="Quick info">
-    <div class="hero-bar-item"><div class="bar-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="bar-lbl">New Location</div><div class="bar-val">5677 Victoria Ave, Niagara Falls</div></div></div>
-    <div class="hero-bar-item"><div class="bar-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="bar-lbl">Hours</div><div class="bar-val">Daily &bull; 11:00 AM &ndash; 4:00 AM</div></div></div>
-    <div class="hero-bar-item"><div class="bar-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.89 6.89l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="bar-lbl">Phone</div><div class="bar-val"><a href="tel:4312796953">(431) 279-6953</a></div></div></div>
-    <div class="hero-bar-item"><div class="bar-ico"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div><div class="bar-lbl">Service</div><div class="bar-val">Dine-In &bull; Take-Out &bull; Delivery</div></div></div>
-  </div>
-</section>
+  <div class="menu-pg-note">Prices subject to change. Taxes not included. Same rates for dine-in and pickup orders.</div>
+</div>
 
-<!-- SERVICES -->
-<div class="services"><div class="services-inner">
-  <div class="svc rev"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div><div class="svc-title">Dine In</div><div class="svc-desc">Warm tables &amp; great atmosphere</div></div>
-  <div class="svc rev d1"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><div class="svc-title">Take-Out</div><div class="svc-desc">Ready fresh, on your schedule</div></div>
-  <div class="svc rev d2"><div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="svc-title">Delivery</div><div class="svc-desc">Hot &amp; fresh at your door</div></div>
-  <div class="svc rev d3"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div><div class="svc-title">Open Until 4 AM</div><div class="svc-desc">Every single day of the year</div></div>
-</div></div>
+<!-- ── TYPE-AHEAD SEARCH (filters existing menu items only) ── -->
+<div class="menu-search-wrap">
+  <span class="menu-search-ico" aria-hidden="true">🔍</span>
+  <input type="search" class="menu-search" id="menuSearch" placeholder="Search dishes…" aria-label="Search menu">
+  <button class="menu-search-clear" id="menuSearchClear" aria-label="Clear search" type="button">&times;</button>
+</div>
 
-
-<!-- WHEAT STRIP (gradient version — original photo lives only on GitHub remote) -->
-<div style="height:220px;overflow:hidden;position:relative;background:linear-gradient(135deg,#3a1f10 0%,#1A0F08 50%,#3a1f10 100%)">
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(17,11,5,.7) 0%,transparent 40%,transparent 60%,rgba(17,11,5,.7) 100%);display:flex;align-items:center;justify-content:center">
-    <div style="text-align:center">
-      <p style="font-family:Fraunces,serif;font-size:clamp(1.2rem,3vw,1.8rem);font-style:italic;font-weight:300;color:rgba(255,255,255,.9);letter-spacing:.04em">&ldquo;From the fields of Punjab to your table&rdquo;</p>
-    </div>
+<!-- STICKY TABS -->
+<div class="menu-tabs-wrap" id="menuTabsWrap">
+  <div class="menu-tabs" id="menuTabs">
+    <div class="menu-tab active" onclick="scrollToSection('thali',this)">Thali</div>
+    <div class="menu-tab" onclick="scrollToSection('street',this)">Street Food</div>
+    <div class="menu-tab" onclick="scrollToSection('breakfast',this)">Breakfast</div>
+    <div class="menu-tab" onclick="scrollToSection('veg',this)">Vegetarian</div>
+    <div class="menu-tab" onclick="scrollToSection('nonveg',this)">Non-Veg</div>
+    <div class="menu-tab" onclick="scrollToSection('snacks',this)">Snacks</div>
+    <div class="menu-tab" onclick="scrollToSection('egg',this)">Egg</div>
+    <div class="menu-tab" onclick="scrollToSection('biryani',this)">Biryani</div>
+    <div class="menu-tab" onclick="scrollToSection('ricebowl',this)">Rice Bowl</div>
+    <div class="menu-tab" onclick="scrollToSection('breads',this)">Breads &amp; Rice</div>
+    <div class="menu-tab" onclick="scrollToSection('sides',this)">Sides</div>
+    <div class="menu-tab" onclick="scrollToSection('dessert',this)">Dessert</div>
+    <div class="menu-tab" onclick="scrollToSection('drinks',this)">Drinks</div>
   </div>
 </div>
 
-<!-- ── STATS BAND (Phase 2 counter-ups) ── -->
-<section class="sec" style="padding-top:3rem;padding-bottom:3rem;background:var(--off)">
-  <div class="sec-in">
-    <div class="counter-row rev" id="counterRow">
-      <div class="counter-c"><div class="counter-n" data-to="30" data-suf="+">0</div><div class="counter-l">Years of Heritage</div></div>
-      <div class="counter-c"><div class="counter-n" data-to="4.8">0</div><div class="counter-l">Average Rating</div></div>
-      <div class="counter-c"><div class="counter-n" data-to="120" data-suf="+">0</div><div class="counter-l">Happy Reviews</div></div>
-      <div class="counter-c"><div class="counter-n" data-to="13">0</div><div class="counter-l">Menu Categories</div></div>
-    </div>
-  </div>
-</section>
+<main class="menu-body">
 
-<!-- ABOUT -->
-<section class="sec about-sec" aria-labelledby="about-h">
-  <!-- ── Floating spices: cardamom, star anise, clove, chili (Phase 1 ambient life) ── -->
-  <div class="spice-field" aria-hidden="true" id="spiceField">
-    <svg class="spice d1" style="--x:8%; --dur:34s; --d:0s" width="34" height="34" viewBox="0 0 32 32"><g fill="#7A8A2A"><ellipse cx="16" cy="16" rx="6" ry="11" transform="rotate(20 16 16)"/><ellipse cx="16" cy="16" rx="2" ry="11" transform="rotate(20 16 16)" fill="#5D6E1F"/></g></svg>
-    <svg class="spice d2" style="--x:22%; --dur:24s; --d:-6s" width="42" height="42" viewBox="0 0 40 40"><g fill="#B5733F"><path d="M20 4 L22 14 L32 14 L24 20 L27 30 L20 24 L13 30 L16 20 L8 14 L18 14 Z"/><circle cx="20" cy="20" r="3" fill="#7A4626"/></g></svg>
-    <svg class="spice d3" style="--x:38%; --dur:18s; --d:-12s" width="26" height="26" viewBox="0 0 24 24"><g fill="#6B3E1C"><circle cx="12" cy="16" r="4"/><path d="M12 12 L12 4 L14 6 L12 2 L10 6 L12 4" stroke="#6B3E1C" stroke-width="1.5" fill="none"/></g></svg>
-    <svg class="spice d2" style="--x:55%; --dur:28s; --d:-3s" width="38" height="38" viewBox="0 0 36 36"><g fill="#D93B2F"><path d="M18 4 Q14 12 16 22 Q18 30 22 28 Q26 22 24 12 Q22 4 18 4 Z"/><path d="M18 4 L18 2 L20 1 L19 4" stroke="#5A6B1F" stroke-width="1.4" fill="#7A8A2A"/></g></svg>
-    <svg class="spice d1" style="--x:72%; --dur:38s; --d:-18s" width="30" height="30" viewBox="0 0 30 30"><g fill="#7A8A2A"><ellipse cx="15" cy="15" rx="5" ry="10" transform="rotate(-15 15 15)"/><ellipse cx="15" cy="15" rx="1.8" ry="10" transform="rotate(-15 15 15)" fill="#5D6E1F"/></g></svg>
-    <svg class="spice d3" style="--x:85%; --dur:20s; --d:-9s" width="44" height="44" viewBox="0 0 40 40"><g fill="#B5733F"><path d="M20 4 L22 14 L32 14 L24 20 L27 30 L20 24 L13 30 L16 20 L8 14 L18 14 Z"/><circle cx="20" cy="20" r="3" fill="#7A4626"/></g></svg>
-    <svg class="spice d2" style="--x:12%; --dur:26s; --d:-22s" width="36" height="36" viewBox="0 0 36 36"><g fill="#D93B2F"><path d="M18 4 Q14 12 16 22 Q18 30 22 28 Q26 22 24 12 Q22 4 18 4 Z"/><path d="M18 4 L18 2 L20 1 L19 4" stroke="#5A6B1F" stroke-width="1.4" fill="#7A8A2A"/></g></svg>
-    <svg class="spice d1" style="--x:65%; --dur:36s; --d:-30s" width="28" height="28" viewBox="0 0 24 24"><g fill="#6B3E1C"><circle cx="12" cy="16" r="4"/><path d="M12 12 L12 4 L14 6 L12 2 L10 6 L12 4" stroke="#6B3E1C" stroke-width="1.5" fill="none"/></g></svg>
-  </div>
-  <div class="sec-in">
-    <div class="about-layout">
-      <div class="about-visual rev">
-        <div class="about-photo">
-          <img loading="lazy" decoding="async" src="images/about-spread.webp" alt="Punjabi Tadka food spread — copper pot buffet">
-          <div class="about-photo-caption"><p>&ldquo;Authentic Punjabi flavours, made fresh every day&rdquo;</p></div>
+  <!-- THALI -->
+  <div class="menu-section rev" id="sec-thali">
+    <div class="menu-section-header">
+      <h2 class="menu-section-title">Thali &mdash; The Perfect Meal</h2>
+    </div>
+    <p style="color:var(--t3);font-size:.86rem;margin-bottom:1.3rem;font-style:italic;font-weight:300">A complete, balanced &amp; satisfying experience</p>
+    <div class="thali-row">
+      <div class="thali-c">
+        <div class="thali-c-top veg">
+          <div class="thali-c-pop">Popular</div>
+          <div class="thali-c-type">Vegetarian</div>
+          <div class="thali-c-name">Veg Thali</div>
+          <div class="thali-c-price">$15.99</div>
         </div>
-        <div class="about-badge"><div class="badge-num">30+</div><div class="badge-txt">Years of<br>Heritage</div></div>
+        <div class="thali-c-body">
+          <div class="thali-c-label">Includes</div>
+          <ul class="thali-c-list">
+            <li>Paneer Dish</li><li>Dal Makhani</li>
+            <li>Rice</li><li>Raita</li>
+            <li>Sweet Dish</li><li>Salad</li>
+            <li>Missi Roti</li><li>Tawa Roti</li>
+          </ul>
+        </div>
       </div>
-      <div class="about-content">
-        <div class="eyebrow">Our Culinary Journey</div>
-        <h2 class="sec-title" id="about-h" style="margin-bottom:1.5rem">Punjabi Flavours,<br><em>Made with Love</em></h2>
-        <p class="rev d1">At Punjabi Tadka Indian Kitchen, we bring the <strong>authentic flavours of Punjabi cuisine</strong> to Niagara Falls. With over 30 years of experience, our culinary journey began in Punjab, where our chef&rsquo;s passion for traditional Punjabi dishes was born.</p>
-        <p class="rev d1">We proudly serve as a <strong>top Indian restaurant in Niagara Falls</strong>, delivering rich, aromatic flavours that keep our community coming back.</p>
-        <p class="rev d2">We&rsquo;ve recently moved to our <strong>new home at 5677 Victoria Ave</strong> &mdash; same recipes, same warmth, brand new location.</p>
-        <div class="about-pills rev d3">
-          <div class="about-pill"><div class="pill-title">Fresh Every Day</div><div class="pill-desc">Every dish prepared fresh daily with quality ingredients</div></div>
-          <div class="about-pill"><div class="pill-title">Authentic Recipes</div><div class="pill-desc">Traditional family recipes, unchanged for 30 years</div></div>
-          <div class="about-pill"><div class="pill-title">Made with Love</div><div class="pill-desc">Because food tastes better when it&rsquo;s made with heart</div></div>
-          <div class="about-pill"><div class="pill-title">Open Until 4 AM</div><div class="pill-desc">Serving Niagara Falls every single day, all year round</div></div>
+      <div class="thali-c">
+        <div class="thali-c-top">
+          <div class="thali-c-pop">Popular</div>
+          <div class="thali-c-type">Non-Vegetarian</div>
+          <div class="thali-c-name">Non-Veg Thali</div>
+          <div class="thali-c-price">$20.99</div>
         </div>
-        <div style="margin-top:2.2rem;display:flex;gap:1rem;flex-wrap:wrap" class="rev d4">
-          <a href="sitemenu.html" class="btn btn-primary magnetic">View Full Menu</a>
-          <a href="contact.html" class="btn btn-outline-red magnetic">Contact Us</a>
+        <div class="thali-c-body">
+          <div class="thali-c-label">Includes</div>
+          <ul class="thali-c-list">
+            <li>Chicken Curry</li><li>Dal Makhani</li>
+            <li>Rice</li><li>Raita</li>
+            <li>Sweet Dish</li><li>Salad</li>
+            <li>Missi Roti</li><li>Tawa Roti</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ── PINNED COOKING SEQUENCE (Phase 2 scroll choreography) ── -->
-<section class="cook-seq" id="cookSeq" aria-label="From spice to plate — our cooking journey">
-  <div class="cook-stage">
-    <div class="cook-frame act" data-idx="0">
-      <div class="cook-frame-bg" style="background:radial-gradient(circle at 30% 40%, #7A4626 0%, #3a1f10 60%, #1A0F08 100%)"></div>
-      <div class="cook-frame-txt">
-        <h3>It starts with <em>whole spices</em></h3>
-        <p>Cardamom, cumin, mustard seed, fenugreek &mdash; carefully selected, sourced fresh, never compromised.</p>
-      </div>
+  <!-- STREET FOOD -->
+  <div class="menu-section rev" id="sec-street">
+    <div class="menu-section-header">
+      <h2 class="menu-section-title">Street Food &mdash; Chaat &amp; Snacks</h2>
+      <span class="menu-section-count">9 items</span>
     </div>
-    <div class="cook-frame" data-idx="1">
-      <div class="cook-frame-bg" style="background:radial-gradient(circle at 50% 50%, #E8820C 0%, #B5271C 50%, #1A0F08 100%)"></div>
-      <div class="cook-frame-txt">
-        <h3>Then the <em>tadka</em> begins</h3>
-        <p>Hot ghee meets cumin and mustard seed. A sizzle. A pop. The kitchen comes alive. <em>This</em> is where flavour is born.</p>
-      </div>
-    </div>
-    <div class="cook-frame" data-idx="2">
-      <div class="cook-frame-bg" style="background:radial-gradient(circle at 70% 50%, #D93B2F 0%, #8C1D15 55%, #1A0F08 100%)"></div>
-      <div class="cook-frame-txt">
-        <h3>Aromatics <em>build the base</em></h3>
-        <p>Onion, ginger, garlic, green chili. Slow-cooked until golden. The foundation every dish stands on.</p>
-      </div>
-    </div>
-    <div class="cook-frame" data-idx="3">
-      <div class="cook-frame-bg" style="background:radial-gradient(circle at 40% 60%, #B5271C 0%, #5D1A10 50%, #1A0F08 100%)"></div>
-      <div class="cook-frame-txt">
-        <h3>The <em>slow simmer</em></h3>
-        <p>Tomato, cream, ground spices, time. Hours, not minutes. Patience is the most important ingredient.</p>
-      </div>
-    </div>
-    <div class="cook-frame" data-idx="4">
-      <div class="cook-frame-bg" style="background:radial-gradient(circle at 50% 40%, #F5A623 0%, #B5271C 40%, #1A0F08 100%)"></div>
-      <div class="cook-frame-txt">
-        <h3>Plated. <em>Served. Loved.</em></h3>
-        <p>30 years of recipes, refined over thousands of meals. Now on your plate &mdash; warm, fragrant, ready.</p>
-      </div>
-    </div>
-    <div class="cook-progress" role="tablist" aria-label="Cooking story chapters">
-      <button class="cook-pip act" type="button" data-idx="0" aria-label="Whole spices"></button>
-      <button class="cook-pip" type="button" data-idx="1" aria-label="Tadka"></button>
-      <button class="cook-pip" type="button" data-idx="2" aria-label="Aromatics"></button>
-      <button class="cook-pip" type="button" data-idx="3" aria-label="Slow simmer"></button>
-      <button class="cook-pip" type="button" data-idx="4" aria-label="Plated"></button>
+    <div class="items-list">
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Samosa Chaat</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$9.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Dahi Bhalla Chaat</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$11.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Tikki Chaat</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$9.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Mix Pakora</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$9.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Paneer Pakora</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$14.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Onion Rings</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$9.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Spring Roll</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$9.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">French Fries</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$9.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Paneer Tikka</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span><span class="mtag mtag-p">Popular</span></div></div><div class="menu-item-price">$16.99</div></div>
     </div>
   </div>
-</section>
 
-<!-- GALLERY -->
-<section class="sec gallery-sec">
-  <div class="sec-in">
-    <div class="gallery-intro rev">
-      <div class="eyebrow" style="justify-content:center">Our Food</div>
-      <h2 class="sec-title">See What&rsquo;s <em>Waiting for You</em></h2>
-      <p style="color:var(--t3);margin-top:.9rem;font-size:.97rem;line-height:1.7">Every dish tells a story of tradition, warmth, and bold Punjabi flavour.</p>
+  <!-- BREAKFAST -->
+  <div class="menu-section rev" id="sec-breakfast">
+    <div class="menu-section-header">
+      <h2 class="menu-section-title">Breakfast Combos</h2>
     </div>
-    <div class="gallery-grid-new">
-      <div class="gal-new big rev" style="background:#fefefe">
-        <img src="images/gallery-1.webp" alt="Punjabi food spread" loading="lazy" style="object-fit:contain">
-        <div class="gal-overlay"><span class="gal-label">Our Spread</span></div>
-      </div>
-      <div class="gal-new rev d1">
-        <img src="images/food-spread.jpg" alt="Biryani" loading="lazy">
-        <div class="gal-overlay"><span class="gal-label">Biryani</span></div>
-      </div>
-      <div class="gal-new rev d2">
-        <img src="images/biryani.jpg" alt="Rajma Rice" loading="lazy">
-        <div class="gal-overlay"><span class="gal-label">Rajma Rice</span></div>
-      </div>
-      <div class="gal-new rev d1">
-        <img src="images/rajma-rice.jpg" alt="Puri Combo" loading="lazy">
-        <div class="gal-overlay"><span class="gal-label">Puri Combo</span></div>
-      </div>
-      <div class="gal-new rev d2">
-        <img src="images/puri-combo.jpg" alt="Parantha Combo" loading="lazy">
-        <div class="gal-overlay"><span class="gal-label">Parantha Combo</span></div>
+    <div class="combo-row">
+      <div class="combo-c"><div class="combo-c-name">Any Parantha Combo</div><div class="combo-c-desc">Aloo / Gobhi / Paneer / Mix / Methi &bull; 1 Parantha + Curd + Butter + Pickle</div><div class="combo-c-price">$12.99</div></div>
+      <div class="combo-c"><div class="combo-c-name">Chole Puri Combo</div><div class="combo-c-desc">2 Puri + Chickpeas &mdash; a hearty Punjabi breakfast classic</div><div class="combo-c-price">$14.99</div></div>
+      <div class="combo-c"><div class="combo-c-name">Aloo Kulcha Combo</div><div class="combo-c-desc">1 Kulcha + Raita + Chana &mdash; simple and satisfying</div><div class="combo-c-price">$14.99</div></div>
+      <div class="combo-c"><div class="combo-c-name">Chana Bhatura Combo</div><div class="combo-c-desc">2 Bhatura + Chana + Raita &mdash; the ultimate Punjabi combo</div><div class="combo-c-price">$14.99</div></div>
+    </div>
+    <div style="margin-top:1.2rem">
+      <p style="font-size:.8rem;color:var(--t3);margin-bottom:.8rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase">Individual Add-Ons</p>
+      <div class="items-list">
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Single Parantha (Aloo / Gobhi / Paneer / Mix)</div></div><div class="menu-item-price">$7.99</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Single Puri</div></div><div class="menu-item-price">$4.99</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Single Bhatura</div></div><div class="menu-item-price">$4.99</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Single Kulcha</div></div><div class="menu-item-price">$7.99</div></div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- HOURS & LOCATION -->
-<section class="sec hours-sec" aria-labelledby="hrs-h">
-  <div class="sec-in">
-    <div class="hours-layout">
-      <div class="rev">
-        <div class="eyebrow">Visit Us</div>
-        <div style="margin-bottom:1.3rem"><span class="live-status" id="liveStatus" role="status" aria-live="polite"><span class="live-dot"></span><span>Open Now &middot; Until 4 AM</span></span></div>
-        <h2 class="sec-title" id="hrs-h" style="margin-bottom:2rem">Hours &amp; <em>Location</em></h2>
-        <div class="hours-card">
-          <div class="hours-card-heading">Opening Hours</div>
-          <table class="hours-tbl"><tbody>
-            <tr><td>Monday &ndash; Sunday</td><td>11:00 AM &ndash; 4:00 AM</td></tr>
-          </tbody></table>
-          <div class="hours-note"><strong>Open every day of the year.</strong> Same rates for dine-in and pickup.</div>
-        </div>
-        <div class="map-embed"><div class="map-facade" role="button" tabindex="0" onclick="this.outerHTML=this.querySelector('template').innerHTML" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.outerHTML=this.querySelector('template').innerHTML}"><span>🗺️ Tap to load map<small>5677 Victoria Ave, Niagara Falls</small></span><template><iframe title="Punjabi Tadka location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2917.2!2d-79.076!3d43.09!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s5677+Victoria+Ave+Niagara+Falls+ON!5e0!3m2!1sen!2sca!4v1" width="100%" height="220" style="border:0;display:block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></template></div></div>
-      </div>
-      <div class="contact-stack rev d2">
-        <div class="ccard"><div class="ccard-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ccard-lbl">New Address</div><div class="ccard-val">5677 Victoria Ave<br>Niagara Falls, ON L2G 3L5</div></div></div>
-        <div class="ccard"><div class="ccard-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.89 6.89l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ccard-lbl">Phone</div><div class="ccard-val"><a href="tel:4312796953">(431) 279-6953</a></div></div></div>
-        <div class="ccard"><div class="ccard-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ccard-lbl">Email</div><div class="ccard-val"><a href="mailto:punjabitadkaindiankitchen@gmail.com">punjabitadkaindiankitchen@gmail.com</a></div></div></div>
-        <div class="ccard"><div class="ccard-ico"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><div><div class="ccard-lbl">Social Media</div><div class="soc-links"><a href="https://www.facebook.com/punjabitadkakitchen/" target="_blank" rel="noopener" class="soc-btn">Facebook</a><a href="https://www.instagram.com/punjabitadkaindiankitchen" target="_blank" rel="noopener" class="soc-btn">Instagram</a><a href="https://www.tripadvisor.com/Restaurant_Review-g154998-d27475347-Reviews-Punjabi_Tadka_Indian_Kitchen-Niagara_Falls_Ontario.html" target="_blank" rel="noopener" class="soc-btn">TripAdvisor</a></div></div></div>
-      </div>
+  <!-- VEGETARIAN -->
+  <div class="menu-section rev" id="sec-veg">
+    <div class="menu-section-header">
+      <h2 class="menu-section-title">Vegetarian Classics</h2>
+      <span class="menu-section-count">14 items</span>
+    </div>
+    <div class="items-list">
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Rajma</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$16.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Kadhi Pakora</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$16.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Chana Masala</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$16.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Dal Makhani</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span><span class="mtag mtag-p">Popular</span></div></div><div class="menu-item-price">$16.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Yellow Dal Tadka</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$16.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Bhindi Masala</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$16.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Sarso da Saag</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$16.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Kadhai Paneer</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span><span class="mtag mtag-p">Popular</span></div></div><div class="menu-item-price">$17.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Shahi Paneer</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$17.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Palak Paneer</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$17.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Matar Paneer</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$17.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Soya Chaap</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$17.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Mix Veg</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$17.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Paneer Bhurji</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$19.99</div></div>
     </div>
   </div>
-</section>
+
+  <!-- NON-VEG SPECIALTIES -->
+  <div class="menu-section rev" id="sec-nonveg">
+    <div class="menu-section-header">
+      <h2 class="menu-section-title">Non-Veg Specialties</h2>
+    </div>
+    <div class="items-list">
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Butter Chicken</div><div class="menu-item-tags"><span class="mtag mtag-p">Popular</span></div></div><div class="menu-item-price">$17.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Chicken Curry</div></div><div class="menu-item-price">$17.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Kadhai Chicken</div></div><div class="menu-item-price">$17.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Goat Curry</div><div class="menu-item-tags"><span class="mtag mtag-p">Popular</span></div></div><div class="menu-item-price">$20.99</div></div>
+    </div>
+  </div>
+
+  <!-- NON-VEG SNACKS -->
+  <div class="menu-section rev" id="sec-snacks">
+    <div class="menu-section-header">
+      <h2 class="menu-section-title">Non-Veg Snacks</h2>
+    </div>
+    <div class="items-list">
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Chicken Wings</div><div class="menu-item-tags"><span class="mtag mtag-s">Spicy</span></div></div><div class="menu-item-price">$14.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Chicken Nuggets</div></div><div class="menu-item-price">$11.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Chicken Fries</div></div><div class="menu-item-price">$11.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Chicken Tikka</div><div class="menu-item-tags"><span class="mtag mtag-s">Spicy</span></div></div><div class="menu-item-price">$16.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Chicken Tandoori</div><div class="menu-item-tags"><span class="mtag mtag-s">Spicy</span></div></div><div class="menu-item-price">$18.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Chicken Kabab</div></div><div class="menu-item-price">$17.99</div></div>
+    </div>
+  </div>
+
+  <!-- EGG -->
+  <div class="menu-section rev" id="sec-egg">
+    <div class="menu-section-header">
+      <h2 class="menu-section-title">Egg Specialties</h2>
+    </div>
+    <div class="items-list">
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Egg Bhurji</div></div><div class="menu-item-price">$16.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Bread Omelette</div></div><div class="menu-item-price">$14.99</div></div>
+    </div>
+  </div>
+
+  <!-- BIRYANI -->
+  <div class="menu-section rev" id="sec-biryani">
+    <div class="menu-section-header">
+      <h2 class="menu-section-title">Biryani</h2>
+    </div>
+    <div class="items-list">
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Veg Biryani</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$16.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Chicken Biryani</div><div class="menu-item-tags"><span class="mtag mtag-p">Popular</span></div></div><div class="menu-item-price">$17.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Goat Biryani</div></div><div class="menu-item-price">$19.99</div></div>
+    </div>
+  </div>
+
+  <!-- RICE BOWL -->
+  <div class="menu-section rev" id="sec-ricebowl">
+    <div class="menu-section-header">
+      <h2 class="menu-section-title">Rice Bowl</h2>
+      <span class="menu-section-count">8 items</span>
+    </div>
+    <div class="items-list">
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Rajma Rice</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$14.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Chole Rice</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$14.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Kadhi Rice</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$14.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Dal Rice</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$14.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Chicken Curry Rice</div></div><div class="menu-item-price">$16.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Butter Chicken Rice</div><div class="menu-item-tags"><span class="mtag mtag-p">Popular</span></div></div><div class="menu-item-price">$16.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Kadhai Chicken Rice</div></div><div class="menu-item-price">$16.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Goat Curry Rice</div></div><div class="menu-item-price">$18.99</div></div>
+    </div>
+  </div>
+
+  <!-- BREADS & RICE -->
+  <div class="menu-section rev" id="sec-breads">
+    <div class="menu-section-header">
+      <h2 class="menu-section-title">Breads &amp; Rice</h2>
+      <span class="menu-section-count">10 items</span>
+    </div>
+    <div class="items-list">
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Tawa Roti</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$2.49</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Tandoori Roti</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$3.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Butter Naan</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$4.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Garlic Naan</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$5.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Laccha Paratha</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$7.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Missi Roti</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$3.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Makki Ki Roti</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$4.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Plain Rice</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$5.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Jeera Rice</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$6.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Veg Pulav</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$11.99</div></div>
+    </div>
+  </div>
+
+  <!-- SIDES -->
+  <div class="menu-section rev" id="sec-sides">
+    <div class="menu-section-header">
+      <h2 class="menu-section-title">Sides</h2>
+    </div>
+    <div class="items-list">
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Green Salad</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$6.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Plain Dahi</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$4.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Mix Raita</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$6.99</div></div>
+    </div>
+  </div>
+
+  <!-- DESSERT -->
+  <div class="menu-section rev" id="sec-dessert">
+    <div class="menu-section-header">
+      <h2 class="menu-section-title">Dessert</h2>
+    </div>
+    <div class="items-list">
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Gulab Jamun (2 pcs)</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span><span class="mtag mtag-p">Popular</span></div></div><div class="menu-item-price">$4.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Rasmalai (2 pcs)</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$4.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Kulfi</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$4.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Matka Kulfi</div><div class="menu-item-tags"><span class="mtag mtag-v">Veg</span></div></div><div class="menu-item-price">$6.99</div></div>
+    </div>
+  </div>
+
+  <!-- JUICES & DRINKS -->
+  <div class="menu-section rev" id="sec-drinks">
+    <div class="menu-section-header">
+      <h2 class="menu-section-title">Fresh Juices, Shakes &amp; Drinks</h2>
+      <span class="menu-section-count">13 items</span>
+    </div>
+    <div class="items-list">
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Orange Juice</div></div><div class="menu-item-price">$11.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Pineapple Juice</div></div><div class="menu-item-price">$11.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Carrot Juice</div></div><div class="menu-item-price">$11.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Apple Juice</div></div><div class="menu-item-price">$11.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Mix Fruit Juice</div></div><div class="menu-item-price">$11.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Mango Shake</div><div class="menu-item-tags"><span class="mtag mtag-p">Popular</span></div></div><div class="menu-item-price">$11.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Banana Shake</div></div><div class="menu-item-price">$11.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Mango Lassi</div><div class="menu-item-tags"><span class="mtag mtag-p">Popular</span></div></div><div class="menu-item-price">$6.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Sweet Lassi</div></div><div class="menu-item-price">$5.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Salted Lassi</div></div><div class="menu-item-price">$5.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Masala Tea</div></div><div class="menu-item-price">$3.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Coffee</div></div><div class="menu-item-price">$4.99</div></div>
+      <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Pop Can</div></div><div class="menu-item-price">$2.99</div></div>
+    </div>
+  </div>
+
+</main>
 
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand">
-      <img loading="lazy" decoding="async" src="images/logo.png" alt="Punjabi Tadka Indian Kitchen" class="footer-logo">
-      <div class="footer-name">Punjabi Tadka Indian Kitchen</div>
-      <div class="footer-tag">Authentic Punjabi Cuisine &middot; Niagara Falls, Ontario</div>
-      <p class="footer-desc">Bringing the warmth and flavours of Punjab to your table for over 30 years. Come hungry, leave with a full heart.</p>
-      <div class="footer-soc">
-        <a href="https://www.facebook.com/punjabitadkakitchen/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="https://www.instagram.com/punjabitadkaindiankitchen" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-        <a href="https://www.tripadvisor.com/Restaurant_Review-g154998-d27475347-Reviews-Punjabi_Tadka_Indian_Kitchen-Niagara_Falls_Ontario.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></a>
-      </div>
-    </div>
-    <div class="footer-col"><h4>Pages</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="sitemenu.html">Our Menu</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-    <div class="footer-col"><h4>Contact</h4><ul class="footer-links"><li><a href="tel:4312796953">(431) 279-6953</a></li><li><a href="mailto:punjabitadkaindiankitchen@gmail.com">punjabitadkaindiankitchen@gmail.com</a></li><li><a>5677 Victoria Ave<br>Niagara Falls, ON</a></li></ul></div>
+    <div class="footer-brand"><img loading="lazy" decoding="async" src="images/logo.png" alt="Logo" class="footer-logo"><div class="footer-name">Punjabi Tadka Indian Kitchen</div><div class="footer-tag">Niagara Falls, Ontario</div><p class="footer-desc">Prices subject to change. Taxes not included. Same rates for dine-in and pickup.</p></div>
+    <div class="footer-col"><h4>Pages</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="sitemenu.html">Menu</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul class="footer-links"><li><a href="tel:4312796953">(431) 279-6953</a></li><li><a>5677 Victoria Ave<br>Niagara Falls, ON</a></li></ul></div>
   </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 Punjabi Tadka Indian Kitchen. All rights reserved.</p>
-    <p>Prices subject to change &middot; Taxes not included</p>
-  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Punjabi Tadka Indian Kitchen. All rights reserved.</p><p>Prices subject to change &middot; Taxes not included</p></div>
 </footer>
-</div><!-- /home -->
+
+<script>
+// Tab scroll to section
+let __ptMenuProgScroll = false;
+let __ptMenuScrollRaf = null;
+
+// Custom RAF-driven smooth scroll. Native smooth scroll is unreliable in
+// Firefox when html{scroll-behavior:smooth} and scrollTo({behavior:'smooth'})
+// are combined — they cancel each other and the page only nudges a few px.
+function __ptMenuSmoothScroll(targetY, duration) {
+  duration = duration || 600;
+  if (__ptMenuScrollRaf) cancelAnimationFrame(__ptMenuScrollRaf);
+  const startY = window.pageYOffset || document.documentElement.scrollTop;
+  const dist = targetY - startY;
+  const startT = performance.now();
+  // Disable CSS smooth-scroll for the duration so our per-frame writes aren't re-animated.
+  const root = document.documentElement;
+  const prevBehavior = root.style.scrollBehavior;
+  root.style.scrollBehavior = 'auto';
+  __ptMenuProgScroll = true;
+  function ease(t){ return t < 0.5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2; }
+  function step(now){
+    const t = Math.min((now - startT) / duration, 1);
+    window.scrollTo(0, startY + dist * ease(t));
+    if (t < 1) {
+      __ptMenuScrollRaf = requestAnimationFrame(step);
+    } else {
+      __ptMenuScrollRaf = null;
+      root.style.scrollBehavior = prevBehavior;
+      __ptMenuProgScroll = false;
+    }
+  }
+  __ptMenuScrollRaf = requestAnimationFrame(step);
+}
+
+function scrollToSection(id, tabEl) {
+  const el = document.getElementById('sec-' + id);
+  if (!el) return;
+  // Update active tab immediately
+  document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+  (tabEl || (event && event.currentTarget) || (event && event.target)).classList.add('active');
+  // Delay scroll so the page is fully visible/laid out first
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      const navHeight = 74;
+      const tabsHeight = document.getElementById('menuTabsWrap') ? document.getElementById('menuTabsWrap').offsetHeight : 50;
+      const offset = navHeight + tabsHeight + 8;
+      const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+      __ptMenuSmoothScroll(top, 600);
+    });
+  });
+}
+
+// Auto-highlight tab on scroll within menu page
+function updateMenuTabs() {
+  if (__ptMenuProgScroll) return;
+  if (!document.getElementById('page-menu').classList.contains('active')) return;
+  const sections = document.querySelectorAll('.menu-section');
+  const tabs = document.querySelectorAll('.menu-tab');
+  let current = 0;
+  sections.forEach((sec, i) => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top <= 160) current = i;
+  });
+  tabs.forEach(t => t.classList.remove('active'));
+  if (tabs[current]) {
+    tabs[current].classList.add('active');
+    // Horizontally scroll the tabs container only — never call scrollIntoView,
+    // which can hijack the document scroll on iOS Safari.
+    const tabsContainer = document.getElementById('menuTabs');
+    if (tabsContainer) {
+      const tabRect = tabs[current].getBoundingClientRect();
+      const containerRect = tabsContainer.getBoundingClientRect();
+      const target = tabsContainer.scrollLeft + (tabRect.left - containerRect.left) - (containerRect.width - tabRect.width) / 2;
+      tabsContainer.scrollTo({ left: target, behavior: 'smooth' });
+    }
+  }
+}
+window.addEventListener('scroll', updateMenuTabs, { passive: true });
+</script>
+</div><!-- /menu -->
 
 <script>
 // Page navigation
