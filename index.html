@@ -1824,6 +1824,7 @@ html.pt-has-cursor .menu-tab, html.pt-has-cursor .menu-search-clear{cursor:point
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-FL92RVD0RE');
+  gtag('config', 'AW-16686371585'); // Google Ads
 
   // Conversion events — fired on real "I want to contact you" actions.
   // Uses event delegation so any future call/WhatsApp/email/maps link is auto-tracked.
@@ -1841,6 +1842,7 @@ html.pt-has-cursor .menu-tab, html.pt-has-cursor .menu-search-clear{cursor:point
         gtag('event', 'whatsapp_click',   { event_category:'engagement', event_label: where });
       } else if (href.indexOf('maps.google') > -1 || href.indexOf('google.com/maps') > -1 || href.indexOf('maps.app.goo') > -1) {
         gtag('event', 'directions_click', { event_category:'engagement', event_label: where });
+        gtag('event', 'conversion', { 'send_to':'AW-16686371585/mqKECOmR2MIcEIGm15Q-', 'value':1.0, 'currency':'CAD' });
       } else if (href.indexOf('mailto:') === 0) {
         gtag('event', 'email_click',      { event_category:'engagement', event_label: where });
       }
